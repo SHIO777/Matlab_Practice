@@ -1,1 +1,1 @@
-![explanation](pendulam.gif)
+![explanation](pendulum.gif)
