@@ -69,5 +69,5 @@ hold off;
 
 % input the "playAnimation" command to command window
 % https://jp.mathworks.com/help/symbolic/writeanimation.html#:~:text=%E9%96%A2%E6%95%B0%20writeAnimation%20%E3%81%AF%E3%80%81MATLAB%C2%AE,%E3%83%AB%E3%83%BC%E3%83%97%E5%9B%9E%E6%95%B0%E3%81%A0%E3%81%91%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E3%81%BE%E3%81%99%E3%80%82
-writeAnimation(fig, "pendulam.gif", "LoopCount", 1)
+writeAnimation(fig, "pendulum.gif", "LoopCount", 1)
 
