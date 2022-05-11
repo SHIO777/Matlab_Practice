@@ -28,11 +28,11 @@ XY = zeros(length(tspan), 4, nPendulum);
 ColorSet = varycolor(nPendulum);
 
 % compute
-for iPendulum = 1:nPendulum
 %     initCond = [1; 2+iPendulum*10^(-12); 0; 0];    % theta1, theta2, dtheta1, dtheta2
 %     initCond = [1; 0.02*iPendulum; 0; 0];
 %     initCond = [30; 150; 0; 0]; % gif7
 %     initCond = [63.95; 63.95; 0; 0];  % deg  gif8
+for iPendulum = 1:nPendulum
     initCond = [60; 60; 0; 0]; % gif9
     initCond = [60; 0; 0; 0]; % gif10
     if iPendulum == 1
