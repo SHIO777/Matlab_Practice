@@ -32,16 +32,15 @@ ColorSet = varycolor(nPendulum);
 %     initCond = [1; 0.02*iPendulum; 0; 0];
 %     initCond = [30; 150; 0; 0]; % gif7
 %     initCond = [63.95; 63.95; 0; 0];  % deg  gif8
+initCond = [60; 60; 0; 0]; % gif9
 for iPendulum = 1:nPendulum
-    initCond = [60; 60; 0; 0]; % gif9
     initCond = [60; 0; 0; 0]; % gif10
     if iPendulum == 1
         initial = initCond;
     end
     initCond(2) = initCond(2)+(iPendulum-1)*10^(-12);    
     initCond = deg2rad(initCond);
-
-    [t, x] = ode45(@(t, x) odePendulum2(t, x), tspan, initCond);   % takes long time if you use "initCond"
+    [t, x] = ode45(@(t, x) odePendulum(t, x), tspan, initCond);
     for n = 1:length(tspan)
         XY(n, :, iPendulum) = theta2xy(x(n, :));
     end
@@ -87,7 +86,7 @@ end
 % close(vidObj)
 
 
-function dxdt=odePendulum2(t, x)
+function dxdt=odePendulum(t, x)
   global L1 L2 M1 M2 g;
   theta1 = x(1);  theta2 = x(2);  dtheta1 = x(3);  dtheta2 = x(4);
   M12 = M1 + M2;
@@ -99,7 +98,6 @@ function dxdt=odePendulum2(t, x)
   RHS = [-M12*g*sin(theta1)-M2*L2*S*dtheta2^2;
          -g*sin(theta2)+L1*S*dtheta1^2];
   ddtheta = inv(LHS) * RHS;
-%   dxdt = [dtheta1; ddtheta(1); dtheta2; ddtheta(2)];
   dxdt = [dtheta1; dtheta2; ddtheta(1); ddtheta(2)];
 end
 
